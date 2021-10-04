@@ -16,3 +16,19 @@ body {
   background: #2196f3;
   padding: 27px;
 }
+
+#sidebar-button {
+  color: inherit;
+  background: inherit;
+  border: none;
+}
+
+#sidebar-button:hover {
+  cursor: pointer;
+}
+
+#sidebar {
+  width: 247px;
+  height: 100vh;
+  border-right: 1px solid #e0e0e0;
+}
