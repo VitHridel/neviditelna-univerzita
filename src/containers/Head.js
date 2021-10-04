@@ -1,3 +1,4 @@
+import Account from "../components/Account"
 
 export default function Head() {
     const showSidebar = () => {
@@ -12,6 +13,7 @@ export default function Head() {
         <header id="head">
             <button id='sidebar-button' onClick={showSidebar}>Menu</button>
             <span>Ferda</span>
+            <Account />
         </header>
     )
 }
