@@ -9,17 +9,20 @@ html {
 body {
   margin: 0;
   max-width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.head {
+/*
+*     Header
+*/
+
+.header {
   display: flex;
   color: #fff;
   font-size: 1.5em;  
+  letter-spacing: .05em;
   background: #2196f3;
   height: 3em;
   justify-content: space-between;
@@ -27,7 +30,7 @@ body {
   box-shadow: 0 .2em .3em rgba(0, 0, 0, .3);
 }
 
-.head div {
+.header div {
   display: flex;
   align-items: center;
 }
@@ -40,6 +43,8 @@ body {
 #sidebar-button:hover {
   cursor: pointer;
 }
+
+/*  Account   */
 
 #ferda,
 #user {
@@ -66,20 +71,23 @@ body {
   margin: 0 .5em;
 }
 
+/*  Account-Info  */
+
 #account-info {
   display: none;
   position: fixed;
   color: #000;
   flex-direction: column;
-  top: 2.5em;
+  top: 2.6em;
   right: 2em;
-  width: 17em;
+  width: 16em;
   background: #fff;
 }
 
 #account-info section {
   display: flex;
   align-items: center;
+  font-size: .8em;
   height: 3.5em;
   width: 100%;
 }
@@ -93,13 +101,17 @@ body {
   color: grey;
 }
 
+#account-info .icon {
+  font-size: 2em;
+}
+
 #account-info section p {
   margin: 0;
 }
 
-#account-info section:nth-child(2) {
-  padding: 5px;
-}
+/*
+*     Sidebar
+*/
 
 #sidebar {
   display: none;
@@ -107,4 +119,38 @@ body {
   width: 15em;
   height: 100vh;
   border-right: 1px solid #e0e0e0;
+}
+
+#sidebar div {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: grey;
+  padding: 1em 2em;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#applications {
+  margin: 0;
+  padding: 0;
+}
+
+#applications li {
+  display: flex;
+  list-style-type: none;
+  font-weight: 600;
+  font-size: 1em;
+  letter-spacing: .04em;
+  padding: .5em 2em;
+  align-items: center;
+  background: gold;
+}
+
+#globe {
+  color: grey;
+  font-size: 1.75em;
+  margin-right: 1em;
+}
+
+#switch {
+  display: none;
 }
