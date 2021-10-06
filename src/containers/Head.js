@@ -4,7 +4,7 @@ import Switch from "../components/Switch";
 export default function Head({name}) {
 
     return(
-        <section class="head">
+        <section className="head">
             <h1>{name}</h1>
             <ViewContextProvider>
                 <Switch />

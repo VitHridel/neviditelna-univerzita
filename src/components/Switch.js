@@ -3,5 +3,11 @@ import { ViewContext } from "../context/ViewContext";
 
 export default function Switch() {
     const { toggleView } = useContext(ViewContext);
-    return ( <button id="switch" onClick={toggleView} />);
+    <button id="switch" onClick={toggleView} />;
+    return ( 
+        <label className="switch">
+            <input type="checkbox" />
+            <span className="slider round"></span>
+        </label>
+    )
 }

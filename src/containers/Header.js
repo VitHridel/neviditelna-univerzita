@@ -6,10 +6,12 @@ import AccountInfo from '../components/AccountInfo';
 
 export default function Header() {
     const showSidebar = () => {
-        if (document.getElementById('sidebar').style.display === 'block') {
-            document.getElementById('sidebar').style.display = 'none'
+        if (document.querySelector('.sidebar').style.display === 'block') {
+            document.querySelector('.sidebar').style.display = 'none'
+            document.querySelector('main').removeAttribute('id')
         } else {
-            document.getElementById('sidebar').style.display = 'block'
+            document.querySelector('.sidebar').style.display = 'block'
+            document.querySelector('main').setAttribute('id','moved')
         }
     }
 
