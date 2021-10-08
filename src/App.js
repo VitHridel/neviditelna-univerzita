@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import Header from "./containers/Header"; 
 import Sidebar from "./containers/Sidebar";
 import Head from "./containers/Head";
-import HeadCard from './components/HeadCard';
-import Events from "./components/Events";
+import HeadCard from './components/main-part/HeadCard';
+import EventsCard from './components/main-part/EventsCard';
+import { ErrorContextProvider } from "./context/ErrorContext";
+import StateFlagsCard from "./components/main-part/StateFlagsCard";
+import { ViewContextProvider } from "./context/ViewContext";
+import OwnerCard from "./components/aside-part/OwnerCard";
 
 export default function App() {
   const [ basicInf, setBasicInf ] = useState({});
@@ -20,14 +24,21 @@ export default function App() {
       <Header />
       <Sidebar />
       <main>
+      <ViewContextProvider>
+        <ErrorContextProvider>
         <Head name={basicInf.domain} />
         <div className="body">
           <section className="main-part">          
             <HeadCard expire={basicInf.expires_at} />
-            <Events />
-          </section>          
-                              
+            <EventsCard />
+            <StateFlagsCard />
+          </section>  
+          <aside className="aside-part">
+            <OwnerCard/>
+          </aside>        
         </div>
+        </ErrorContextProvider>                    
+      </ViewContextProvider>
       </main>
     </div>
   );

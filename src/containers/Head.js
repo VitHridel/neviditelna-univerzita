@@ -1,14 +1,10 @@
-import { ViewContextProvider } from '../context/ViewContext';
-import Switch from "../components/Switch";
+import Switch from "../components/main-part/Switch";
 
 export default function Head({name}) {
-
     return(
         <section className="head">
             <h1>{name}</h1>
-            <ViewContextProvider>
-                <Switch />
-            </ViewContextProvider>
+            <Switch />            
         </section>
     )
 }

@@ -31,7 +31,8 @@
         "name": "Vzoromil Výsměšek",
         "publish": {
             "organization": true,
-            "name": true
+            "name": true,
+            "handle": false
         }
     },
     "administrative_contacts": [

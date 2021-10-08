@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react/cjs/react.development";
+import { useState, useEffect, useContext } from "react/cjs/react.development";
+import { ErrorContext  } from "../../context/ErrorContext";
 
-export default function Events() {
+export default function EventsCard() {
     const [ events, setEvents ] = useState()
-    const [ error, setError ] = useState()
+    const { error, setError } = useContext(ErrorContext);
 
     useEffect(() => {
         fetch('http://localhost:3000/events')
@@ -20,15 +21,14 @@ export default function Events() {
 
     return(
         <section className="card">
-            {error && <p>{error}</p>}
-            {events && 
+            {events ? 
             <div className="container">
                 <p>Create date: {events.registered.timestamp} Registrar: {events.registered.registrar_handle}</p>
                 <p>Update date: {events.updated.timestamp} Registrar: {events.updated.registrar_handle}</p>
                 <p>Transfer date: {events.transferred.timestamp} Registrar: {events.transferred.registrar_handle}</p>
                 <p>Delete date: {events.unregistered && events.unregistered.timestamp}</p>
-            </div>}            
-            
+            </div> : 
+            <p>{error}</p>}
         </section>
     )
 }
