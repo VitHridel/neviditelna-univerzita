@@ -8,6 +8,9 @@ import { ErrorContextProvider } from "./context/ErrorContext";
 import StateFlagsCard from "./components/main-part/StateFlagsCard";
 import { ViewContextProvider } from "./context/ViewContext";
 import OwnerCard from "./components/aside-part/OwnerCard";
+import AdministrativeContactsCard from "./components/aside-part/AdmistrativeContactsCard";
+import NsSetCard from "./components/aside-part/NSSetCard";
+import KeySetCard from "./components/aside-part/KeySetCard";
 
 export default function App() {
   const [ basicInf, setBasicInf ] = useState({});
@@ -35,6 +38,9 @@ export default function App() {
           </section>  
           <aside className="aside-part">
             <OwnerCard/>
+            <AdministrativeContactsCard />
+            <NsSetCard />
+            <KeySetCard />
           </aside>        
         </div>
         </ErrorContextProvider>                    

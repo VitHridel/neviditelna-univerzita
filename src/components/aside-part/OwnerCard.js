@@ -1,5 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { ErrorContext } from "../../context/ErrorContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 export default function OwnerCard() {
     const [ owner, setOwner ] = useState({});
@@ -20,21 +23,23 @@ export default function OwnerCard() {
       }, []);
 
     return(
+      owner && owner.publish ? 
         <section className="card">
-            {owner ? 
-            <div className="container">                
-                {/*Object.entries(owner).map(key=> 
-                    Object.entries(owner.publish).map(publishKey=> {
-                        if(key[0]===publishKey[0] && publishKey[1]) {
-                            return <p>ok {`${key[0]}: ${key[1]}`}</p>
-                        } else if(key[0]===publishKey[0] && !publishKey[1]) {
-                            return <p>not ok {`${key[0]}: ${key[1]}`}</p>
-                        }
-                        }))
-                  */
-                }
-            </div>
-            : <p>{error}</p>}
+            <h4>
+                <div className="container">
+                    Owner:
+                </div>
+            </h4>
+          <div className="container">
+            <p className="handle handling"><span className="data-name">Handle:</span> {owner.handle}</p>
+            {owner.publish.organization ? <p><FontAwesomeIcon className="icon active" icon={faEye} /> 
+            <span className="data-name">Organization:</span> {owner.organization}</p>
+            : <p><FontAwesomeIcon className="icon non-active" icon={faEyeSlash} />
+            <span className="data-name">Organization:</span> {owner.organization}</p> }
+            {owner.publish.name ? <p><FontAwesomeIcon className="icon active" icon={faEye} /><span className="data-name">Name:</span> {owner.name}</p>
+            : <p><FontAwesomeIcon className="icon non-active" icon={faEyeSlash} /><span className="data-name">Name:</span> {owner.name}</p>}      
+          </div>
         </section>
+        : <p>{error}</p>
     )
 }

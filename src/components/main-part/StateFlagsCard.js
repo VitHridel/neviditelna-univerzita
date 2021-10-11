@@ -25,16 +25,15 @@ export default function StateFlagsCard() {
       }, []);
 
     return(
-        <section id="state-flags" className="card">
-            { stateFlags ?
-                <div className="container">
+        stateFlags ?
+            <section className="state-flags card">
+                <h4>
+                    <div className="container">
+                        State flags:
+                    </div>
+                </h4>
                 {verboseView ? 
-                    <ul>
-                        {stateFlags.flags.map(flag => 
-                        flag.active && <li className="active"><FontAwesomeIcon icon={faCheckCircle} />{flag.description}</li>
-                        )}
-                    </ul>
-                 : <div id="lists">
+                    <div className="container">
                         <ul>
                             {stateFlags.flags.map(flag => {
                                 if((flag.name.includes('server') && !flag.name.includes('Manual')) || flag.name.includes('deleteCandidate')) {
@@ -64,12 +63,18 @@ export default function StateFlagsCard() {
                                 )
                             }
                             })}
+                        </ul>     
+                    </div>  
+                    : 
+                    <div className="container">
+                        <ul id="no-more-lists">
+                            {stateFlags.flags.map(flag => 
+                            flag.active && <li className="active"><FontAwesomeIcon icon={faCheckCircle} />{flag.description}</li>
+                            )}
                         </ul>
-                    
                     </div>
                     }
-                </div>
-                 : <p>{error}</p> }
-        </section>
+            </section>
+            : <p>{error}</p>
     )
 }

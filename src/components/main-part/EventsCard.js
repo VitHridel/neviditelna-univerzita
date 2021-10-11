@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react/cjs/react.development";
 import { ErrorContext  } from "../../context/ErrorContext";
+import convertToDate from "../../fce/convertToDate";
 
 export default function EventsCard() {
     const [ events, setEvents ] = useState()
@@ -20,15 +21,27 @@ export default function EventsCard() {
       }, []);
 
     return(
-        <section className="card">
-            {events ? 
-            <div className="container">
-                <p>Create date: {events.registered.timestamp} Registrar: {events.registered.registrar_handle}</p>
-                <p>Update date: {events.updated.timestamp} Registrar: {events.updated.registrar_handle}</p>
-                <p>Transfer date: {events.transferred.timestamp} Registrar: {events.transferred.registrar_handle}</p>
-                <p>Delete date: {events.unregistered && events.unregistered.timestamp}</p>
-            </div> : 
-            <p>{error}</p>}
+      events ? 
+        <section className="events card">
+          <h4>
+              <div className="container">
+                  Events:
+              </div>
+          </h4>
+          <div className="container">
+            <div className="dates">
+              <p><span className="data-name">Create date:</span> {convertToDate(events.registered.timestamp)}</p>
+              <p><span className="data-name">Update date:</span> {convertToDate(events.updated.timestamp)}</p>              
+              <p><span className="data-name">Transfer date:</span> {convertToDate(events.transferred.timestamp)}</p>
+              <p><span className="data-name">Delete date:</span> {events.unregistered && convertToDate(events.unregistered.timestamp)}</p>
+            </div>
+            <div className="registrars">
+              <p className="registrar"><span className="data-name">Registrar:</span> {events.registered.registrar_handle}</p>
+              <p className="registrar"><span className="data-name">Registrar:</span> {events.updated.registrar_handle}</p>
+              <p className="registrar"><span className="data-name">Registrar:</span> {events.transferred.registrar_handle}</p>
+            </div>
+          </div>  
         </section>
+        : <p>{error}</p>
     )
 }

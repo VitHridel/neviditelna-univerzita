@@ -9,7 +9,7 @@ export default function AccountInfo() {
                 <FontAwesomeIcon icon={faUserCircle} className="user-circle icon" />
                 <p>Jan Musílek<br/><span id="admin">admin</span></p>
             </section>
-            <section id="logout"><FontAwesomeIcon icon={faSignOutAlt} className="icon" /><span>Logout</span></section>            
+            <section id="logout"><FontAwesomeIcon icon={faSignOutAlt} className="icon" /><p>Logout</p></section>            
         </div>
     )
 }
